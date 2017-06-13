@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tomcat-deployment-v2
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tomcat-v2
+    spec:
+      containers:
+      - name: tomcat
+        image: zsustar/tomcat:3.0
+        command: ["sh","-c","/root/apache-tomcat-7.0.42-v2/bin/start.sh"]
+        ports:
+        - containerPort: 8080
+          hostPort: 8082
