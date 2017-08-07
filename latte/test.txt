@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+123
+2nd line
+=======
+echo "hello world"
+echo "new branch"
+>>>>>>> a836160e90f50b82a8099a692a73f6960612b434
