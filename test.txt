@@ -5,3 +5,4 @@
 echo "hello world"
 echo "new branch"
 >>>>>>> a836160e90f50b82a8099a692a73f6960612b434
+new line 7/8
