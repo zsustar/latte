@@ -18,7 +18,7 @@ pipeline {
             
           },
           "Pro Yan": {
-            sh 'echo "branch test"'
+            sh 'echo "are you sure that\'s you want to"'
             
           }
         )
