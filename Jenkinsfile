@@ -1,32 +1,22 @@
 #!/usr/bin/env groovy
-
-node ('master') {
-    try {
-        stage('first stage'){
-				sh 'echo "First stage"'
-		}
-		stage('second sage'){
-				sh 'echo "Second stage"'
-		}
-		
-		stage('third stage'){
-				parallel(
-					one: {
-						echo "This is first branch"
-						sh 'pwd'
-					},
-					two: {
-						echo "This is second branch"
-						sh 'pwd'
-					},
-					three: {
-						echo "This is third branch"
-						echo "Holy Shxt!"
-						sh 'pwd'
-					},
-				)
-		}
-		    stage('Browser Tests'){
+node('master') {
+    stage('Build') {
+        sh "echo Build"
+    }
+    stage('Test'){
+      parallel (
+        "JUnit": { 
+            sh "echo JUnit"
+        },
+        "DBUnit": { 
+            sh "echo DBUnit"
+        },
+        "Jasmine": { 
+            sh "echo Jasmine"
+        },
+      )
+    }
+    stage('Browser Tests'){
       parallel (
         "Firefox": { 
             sh "echo Firefox"
@@ -51,7 +41,4 @@ node ('master') {
     stage('Production'){
         sh "echo Production"
     }
-	} catch (error){
-		throw error
-	}
 }
