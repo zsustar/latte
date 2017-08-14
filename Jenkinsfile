@@ -3,17 +3,13 @@
 node ('master') {
     try {
         stage('first stage'){
-			steps{
 				sh 'echo "First stage"'
-			}
 		}
-		
 		stage('second sage'){
 				sh 'echo "Second stage"'
 		}
 		
 		stage('third stage'){
-			steps{
 				parallel(
 					one: {
 						echo "This is first branch"
@@ -27,10 +23,34 @@ node ('master') {
 						echo "This is third branch"
 						echo "Holy Shxt!"
 						sh 'pwd'
-					}
+					},
 				)
-			}
 		}
+		    stage('Browser Tests'){
+      parallel (
+        "Firefox": { 
+            sh "echo Firefox"
+        },
+        "Edge": { 
+            sh "echo Edge"
+        },
+        "Safari": { 
+            sh "echo Safari"
+        },
+        "Chrome": { 
+            sh "echo Chrome"
+        },
+      )
+    }
+    stage('Dev'){
+        sh "echo Dev"
+    }
+    stage('Staging'){
+        sh "echo Staging"
+    }
+    stage('Production'){
+        sh "echo Production"
+    }
 	} catch (error){
 		throw error
 	}
