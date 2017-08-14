@@ -2,8 +2,7 @@
 
 
 pipeline  {
-	agent any
-    try {
+
         stage('first stage'){
 				sh 'echo "First stage"'
 		}
@@ -53,7 +52,5 @@ pipeline  {
     stage('Production'){
         sh "echo Production"
     }
-	} catch (error){
-		throw error
-	}
+
 }
