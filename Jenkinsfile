@@ -16,6 +16,10 @@ pipeline {
           "second last stage": {
             sh 'echo "Second branch stage"'
             
+          },
+          "Pro Yan": {
+            sh 'echo "branch test"'
+            
           }
         )
       }
