@@ -26,7 +26,7 @@ pipeline {
           },
           "three": {
             echo 'This is third branch'
-            echo 'Holy Shxt!'
+            echo 'Pro Yan you owe me 2 coffees for pa chong!'
             sh 'pwd'
             
           }
