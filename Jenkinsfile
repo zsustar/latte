@@ -8,7 +8,16 @@ pipeline {
     }
     stage('second sage') {
       steps {
-        sh 'echo "Second stage"'
+        parallel(
+          "second sage": {
+            sh 'echo "Second stage"'
+            
+          },
+          "second last stage": {
+            sh 'sh \'This if branch testing\''
+            
+          }
+        )
       }
     }
     stage('third stage') {
