@@ -27,7 +27,7 @@ pipeline  {
 					},
 				)
 		}
-		    stage('Browser Tests'){
+	stage('Browser Tests'){
       parallel (
         "Firefox": { 
             sh "echo Firefox"
@@ -43,14 +43,4 @@ pipeline  {
         },
       )
     }
-    stage('Dev'){
-        sh "echo Dev"
-    }
-    stage('Staging'){
-        sh "echo Staging"
-    }
-    stage('Production'){
-        sh "echo Production"
-    }
-
 }
