@@ -14,7 +14,7 @@ pipeline {
             
           },
           "second last stage": {
-            sh 'sh \'echo "This if branch testing"\''
+            sh 'sh \'echo "Second stage Branch"\''
             
           }
         )
