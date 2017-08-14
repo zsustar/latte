@@ -14,7 +14,7 @@ pipeline {
             
           },
           "second last stage": {
-            sh 'sh \'echo "Second stage Branch"\''
+            sh 'echo "Second branch stage"'
             
           }
         )
