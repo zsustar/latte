@@ -1,18 +1,24 @@
 #!/usr/bin/env groovy
 
 pipeline  {
-stages{
-    stage('first stage'){
-        sh 'echo "First stage"'
+    agent any
+    stages{
+        stage('first stage'){
+            steps{
+                sh 'echo "First stage"'
+            }
     }
-	stage('second sage'){
-	    sh 'echo "Second stage"'
-	}
-		
-	stage('third stage'){
-         parallel(
-			one: {
-				echo "This is first branch"
+    stage('second sage'){
+            steps{
+                sh 'echo "Second stage"'
+            }
+    }
+
+    stage('third stage'){
+        steps {
+            parallel(
+					one: {
+						echo "This is first branch"
 						sh 'pwd'
 					},
 					two: {
@@ -24,7 +30,8 @@ stages{
 						echo "Holy Shxt!"
 						sh 'pwd'
 					},
-				)
+			)
 		}
+	}
 }
 }
